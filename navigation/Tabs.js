@@ -38,8 +38,6 @@ export default Tabs;
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 10,
-        justifyContent: 'center'
     },
     tabList: {
         flexDirection: 'row',
