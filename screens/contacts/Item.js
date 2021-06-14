@@ -58,14 +58,13 @@ const styles = StyleSheet.create({
     item: {
         // width:Dimensions.get("window").width - 42,
         padding: 15,
-        marginTop: 5,
-        marginBottom: 5,
+        // marginTop: 5,
+        // marginBottom: 5,
         display: 'flex',
         flexDirection: 'row',
-        backgroundColor: '#fff',
-        borderRadius: 5,
-        // borderWidth:1,
-        // borderColor:'#eee'
+        // backgroundColor: '#fff',
+        // borderRadius: 5,
+
         // shadowColor: '#999',
         // shadowOffset: { width: 0, height: 1 },
         // shadowOpacity: 0.8,
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        flexGrow: 1
+        flexGrow: 1,
     },
     name: {
         fontSize: 19,

@@ -6,19 +6,35 @@ import Contacts from './screens/contacts/Contacts';
 import CallLogs from 'react-native-call-log';
 import ContactsList from 'react-native-contacts';
 
-const PRIMARY_BG = '#f5fAfA';
-
+// const PRIMARY_BG = '#f5fAfA';
+const PRIMARY_BG = '#292929';
+const ALPHABETS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const App = () => {
   const [activeTab, setActiveTab] = useState('contacts');
   const [contacts, setContacts] = useState([]);
   const [logs, setLogs] = useState([]);
 
   useEffect(() => {
-    StatusBar.setBarStyle('dark-content', true)
+    StatusBar.setBarStyle('light-content', true)
     StatusBar.setBackgroundColor(PRIMARY_BG);
     getAllContacts();
     getAllLogs();
   }, [])
+
+  const getSectionData = (list) => {
+    let finalData = [];
+    let obj = {};
+    let alphabet;
+    for (alphabet of ALPHABETS) {
+      obj = {
+        title: alphabet,
+        data: list.filter(item => item.displayName.toLowerCase().startsWith(alphabet.toLowerCase()))
+      }
+      if (obj.data.length > 0)
+        finalData.push(obj)
+    }
+    return finalData;
+  }
 
   async function getAllContacts() {
     try {
@@ -31,7 +47,8 @@ const App = () => {
           return el.phoneNumbers[0] != null;
         });
         filteredContacts.sort((a, b) => (a.displayName > b.displayName) ? 1 : ((b.displayName > a.displayName) ? -1 : 0))
-        setContacts(filteredContacts)
+        var sectionedData = getSectionData(filteredContacts);
+        setContacts(sectionedData);
       }
     } catch (error) {
       console.log(error);
@@ -66,7 +83,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    // padding: 20,
     paddingVertical: 10,
     backgroundColor: PRIMARY_BG
   }

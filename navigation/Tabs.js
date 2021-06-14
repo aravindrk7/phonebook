@@ -49,19 +49,21 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     text: {
-        fontSize: 20,
+        fontSize: 25,
         padding: 20,
         textAlign: 'center',
-        textTransform: 'uppercase',
-        fontWeight: 'bold',
+        textTransform: 'capitalize',
         letterSpacing: 2,
-        color: '#292929'
+        color: '#fff',
+        fontFamily: 'ProximaNovaSoft-Semibold',
     },
     textTabActive: {
-        color: '#4287f5'
+        color: '#fff'
     },
     seperator: {
         fontSize: 30,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#fff',
+
     }
 })
